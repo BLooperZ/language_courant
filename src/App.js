@@ -1,55 +1,24 @@
 import React, { Component } from 'react'
 
-import CollectItems from './components/CollectItems'
+import CollectItems from './components/level2/CollectItems'
 
-import { colors } from './utils/constants'
+import { pool } from './utils/mock'
 import logo from './logo.svg'
 import './App.css'
 
-let words = [
-  {
-    name: 'Un pallete rouge',
-    item: 'pallete',
-    extra: 'rouge'
-  },
-  {
-    name: 'Un pallete rouge',
-    item: 'pallete',
-    extra: 'rouge'
-  },
-  {
-    name: 'Un pallete rouge',
-    item: 'pallete',
-    extra: 'rouge'
-  }
-]
+const getItems = words => words.map(word => word.item)
 
-let pool = [
-  {
-    item: 'pallete',
-    extra: colors.ROUGE
-  },
-  {
-    item: 'pinceu',
-    extra: colors.ROUGE
-  },
-  {
-    item: 'pinceu',
-    extra: colors.VERT
-  },
-  {
-    item: 'toile',
-    extra: colors.BLANC
-  },
-  {
-    item: 'pallete',
-    extra: colors.ROUGE
-  }
-]
+const getRandomItems = words => words.slice(0, 3)
+
+let selectedIndices = [0, 5, 4]
 
 class App extends Component {
   render() {
-    return <CollectItems words={words} pool={pool} />
+    return (
+      <div style={{ background: 'crimson' }}>
+        <CollectItems words={pool} selected={selectedIndices} />
+      </div>
+    )
   }
 }
 
