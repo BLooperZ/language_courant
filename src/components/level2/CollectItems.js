@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import FlexView from 'react-flexview'
 
 import { WordPool, List } from './ItemPresent'
 
@@ -33,7 +34,7 @@ class Level2Screen extends Component {
     const { words, selected } = this.props
     if (this.state.selected < selected.length) {
       return (
-        <div>
+        <FlexView column grow>
           <List
             items={selected.map(idx => words[idx])}
             selected={this.state.selected}
@@ -43,7 +44,7 @@ class Level2Screen extends Component {
             selected={selected[this.state.selected]}
             handler={this.clickPool.bind(this)}
           />
-        </div>
+        </FlexView>
       )
     } else {
       return <button>Avancer</button>

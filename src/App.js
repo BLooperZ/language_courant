@@ -15,7 +15,14 @@ let selectedIndices = [0, 5, 4]
 class App extends Component {
   render() {
     return (
-      <div style={{ background: 'crimson' }}>
+      <div
+        style={{
+          background: 'crimson',
+          width: '320px',
+          height: '480px',
+          margin: '0 auto'
+        }}
+      >
         <CollectItems words={pool} selected={selectedIndices} />
       </div>
     )

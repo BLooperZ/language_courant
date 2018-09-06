@@ -1,4 +1,5 @@
 import React from 'react'
+import FlexView from 'react-flexview'
 
 const DisplayItem = ({ item, current }) => {
   const one = {
@@ -8,12 +9,14 @@ const DisplayItem = ({ item, current }) => {
 
   let style = current ? { fontWeight: 'bold' } : {}
   return (
-    <li style={style}>
-      <span className="vocab">
-        {one[item.vocab.gender]} {item.vocab.name}
-      </span>{' '}
-      <span className="extra">{item.extra[item.vocab.gender]}</span>
-    </li>
+    <FlexView grow>
+      <li style={style}>
+        <span className="vocab">
+          {one[item.vocab.gender]} {item.vocab.name}
+        </span>{' '}
+        <span className="extra">{item.extra[item.vocab.gender]}</span>
+      </li>
+    </FlexView>
   )
 }
 
@@ -31,7 +34,7 @@ const PoolItem = ({ word, extra, onClick }) => (
 )
 
 const WordPool = ({ items, handler, selected }) => (
-  <div>
+  <FlexView wrap hAlignContent="center" vAlignContent="center">
     {items.map((word, idx) => {
       const { vocab, extra } = word
 
@@ -44,7 +47,7 @@ const WordPool = ({ items, handler, selected }) => (
         />
       )
     })}
-  </div>
+  </FlexView>
 )
 
 const List = ({ items, selected }) => {
