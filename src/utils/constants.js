@@ -44,15 +44,18 @@ const colors = {
 const vocabs = {
   PALETTE: {
     name: 'palette',
-    gender: 'f'
+    gender: 'f',
+    image: require('../assets/palette.jpg')
   },
   TOILE: {
     name: 'toile',
-    gender: 'f'
+    gender: 'f',
+    image: require('../assets/toile.jpg')
   },
   PINCEAU: {
     name: 'pinceau',
-    gender: 'm'
+    gender: 'm',
+    image: require('../assets/pinceau.jpg')
   }
 }
 

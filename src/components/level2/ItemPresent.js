@@ -25,18 +25,28 @@ const ListItem = ({ word, done, current }) => (
 )
 
 const PoolItem = ({ word, extra, onClick }) => (
-  <button
-    style={{ background: extra.css, margin: 5, border: 0, borderRadius: 2 }}
-    onClick={onClick}
-  >
-    <p>{word.name}</p>
-  </button>
+  <div style={{ borderColor: 'black' }}>
+    <input
+      type="image"
+      style={{
+        background: extra.css,
+        margin: 5,
+        padding: 10,
+        width: '50px',
+        height: '50px',
+        borderWidth: '5px',
+        borderRadius: 2
+      }}
+      onClick={onClick}
+      src={word.image}
+    />
+  </div>
 )
 
 const WordPool = ({ items, handler, selected }) => (
   <FlexView wrap hAlignContent="center" vAlignContent="center">
     {items.map((word, idx) => {
-      const { vocab, extra } = word
+      const { vocab, extra } = word.item
 
       return (
         <PoolItem

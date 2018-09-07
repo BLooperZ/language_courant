@@ -18,15 +18,20 @@ class Level2Screen extends Component {
   clickPool(word, selected) {
     const { words } = this.props
     const next = words[selected].item
-    if (word === next) {
+
+    if (word.audio !== undefined) {
+      new Audio(word.audio).play()
+    }
+
+    if (word.item === next) {
       this.setState({
         selected: this.state.selected + 1
       })
     }
-    if (word.vocab === next.vocab) {
+    if (word.item.vocab === next.vocab) {
       this.setState({ correct: VOCAB })
     }
-    if (word.extra === next.extra) {
+    if (word.item.extra === next.extra) {
       this.setState({ correct: EXTRA })
     }
   }
@@ -39,8 +44,9 @@ class Level2Screen extends Component {
             items={selected.map(idx => words[idx])}
             selected={this.state.selected}
           />
+          <div style={{ height: '80px' }} />
           <WordPool
-            items={words.map(word => word.item)}
+            items={words}
             selected={selected[this.state.selected]}
             handler={this.clickPool.bind(this)}
           />
